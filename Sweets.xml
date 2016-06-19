@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<candy xmlns="http://www.example.org/NewXMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.example.org/NewXMLSchema SweetsXMLSchema.xsd"> -->
+<candy>
+    <name>Mak</name>
+	<energy amount="500" unit="Kkal"></energy>
+	<type>caramel</type>
+	<ingredients>
+		<ingredient name="water" amount="50" unit="mg"/>
+		<ingredient name="sugar" amount="60" unit="mg"/>
+		<ingredient name="vanilla" amount="10" unit="mg"/>
+		<ingredient name="treacle" amount="40" unit="mg"/>
+		<ingredient name="stabilizer" amount="30" unit="mg"/>
+	</ingredients>
+	<values>
+		<value name="proteins" amount="25" unit="g"/>
+		<value name="fats" amount="20" unit="g"/>
+		<value name="carbohydrates" amount="55" unit="g"/>
+	</values>
+	<prodaction>Lviv Confectionery "Yura"</prodaction>
+</candy> 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/NewXMLSchema" xmlns:tns="http://www.example.org/NewXMLSchema"
+	elementFormDefault="qualified">
+
+	<xs:simpleType name="ingredientType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="water" />
+			<xs:enumeration value="sugar" />
+			<xs:enumeration value="vanilla" />
+			<xs:enumeration value="treacle" />
+			<xs:enumeration value="stabilizer" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="valueType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="proteins" />
+			<xs:enumeration value="fats" />
+			<xs:enumeration value="carbohydrates" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MyDecimal">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="10" />
+			<xs:maxInclusive value="90" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:element name="candy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="energy">
+					<xs:complexType>
+						<xs:attribute name="unit" type="xs:string" fixed="Kkal" />
+						<xs:attribute name="amount">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:pattern value="[0-9][0-9][0-9]" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="type" type="xs:string" />
+				<xs:element name="ingredients">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ingredient" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="tns:ingredientType" />
+						<xs:attribute name="amount" type="xs:decimal" />
+						<xs:attribute name="unit" type="xs:string" fixed="mg" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="values">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="value"  maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="tns:ingredientType" />
+						<xs:attribute name="amount" type="tns:MyDecimal" />
+						<xs:attribute name="unit" type="xs:string" fixed="g" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="prodaction" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+
+
